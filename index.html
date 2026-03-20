@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        audio { width: 95%; }
+    </style>
+</head>
+<body>
+    <audio id="audioPlayer" controls autoplay>
+        <source id="audioSource" src="" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // دالة لاستقبال رابط الصوت من الـ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const audioUrl = urlParams.get('url');
+        if (audioUrl) {
+            const player = document.getElementById('audioPlayer');
+            const source = document.getElementById('audioSource');
+            source.src = audioUrl;
+            player.load();
+        }
+    </script>
+</body>
+</html>
